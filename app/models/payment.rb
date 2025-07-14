@@ -6,8 +6,8 @@ class Payment < ApplicationRecord
   validates :requested_at, presence: true
 
   # Enums (já fazem validação automática)
-  enum processor_type: { default: 0, fallback: 1 }
-  enum status: { pending: 0, processing: 1, processed: 2, failed: 3 }
+  enum :processor_type,  { default: 0, fallback: 1 }
+  enum :status, { pending: 0, processing: 1, processed: 2, failed: 3 }
 
   # Scopes úteis para queries
   scope :by_processor, ->(processor) { where(processor_type: processor) }
