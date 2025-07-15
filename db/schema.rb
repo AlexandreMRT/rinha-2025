@@ -14,7 +14,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_08_181748) do
   create_table "payments", force: :cascade do |t|
     t.string "correlation_id", null: false
     t.decimal "amount", precision: 15, scale: 2, null: false
-    t.datetime "requested_at", null: false
+    t.datetime "requested_at"
     t.integer "processor_type", default: 0, null: false
     t.integer "status", default: 0, null: false
     t.datetime "processed_at"

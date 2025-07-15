@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration[8.0]
     create_table :payments do |t|
       t.string :correlation_id, null: false
       t.decimal :amount, precision: 15, scale: 2, null: false
-      t.datetime :requested_at, null: false
+      t.datetime :requested_at
       t.integer :processor_type, default: 0, null: false
       t.integer :status, default: 0, null: false
       t.datetime :processed_at

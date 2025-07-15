@@ -46,6 +46,10 @@ class PaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.expect(payment: [ :correlationId, :amount, :requested_at, :processor_type, :status, :processed_at ])
+      params.permit(:amount, :correlationId)
+      {
+        correlation_id: params[:correlationId],
+        amount: params[:amount]
+      }
     end
 end
